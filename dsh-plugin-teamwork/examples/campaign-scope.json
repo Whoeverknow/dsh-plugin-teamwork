@@ -1,0 +1,24 @@
+{
+  "_comment": "示例：一次 /teamwork 战役的范围契约（Phase 1 访谈产出物，落 storageDomain：teamwork.knowledge）。",
+  "campaignId": "campaign-example",
+  "objective": "将 SDK 全部同步 API 改为异步，保持测试全绿 + 性能基准 p95 不劣化 + 兼容层保留",
+  "pattern": "distributed_coding",
+  "integrity": "demo",
+  "acceptanceCriteria": [
+    "全量单元测试通过（真实命令输出，禁止 mock 通过）",
+    "基准脚本 p95 不劣化超过 5%（fixture hash 锁定）",
+    "同步 API 兼容层保留并通过适配测试"
+  ],
+  "budget": { "maxAgents": 6, "maxRounds": 4 },
+  "verification": {
+    "cheap": "eslint / 静态检查",
+    "medium": "单元测试（每 worker 本地）",
+    "expensive": "全量回归 + 基准 oracle（唯一验收门）"
+  },
+  "roles": [
+    { "name": "design-explorer", "context": "fresh", "providerTier": "mixed" },
+    { "name": "worker", "context": "fresh", "providerTier": "flash", "writeScopes": ["campaign/*/worker-*"] },
+    { "name": "critic", "context": "fresh", "providerTier": "pro", "blind": true },
+    { "name": "verifier", "context": "fresh", "providerTier": "pro" }
+  ]
+}

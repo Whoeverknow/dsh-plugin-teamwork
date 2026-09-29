@@ -1,0 +1,16 @@
+{
+  "_comment": "示例：如何在 profile 中启用本插件（二选一）。方式 A：把包名加入 dsh.profile.bundles（推荐，bundle 由插件管理器解析）。方式 B：在 cordis.yml / agent preset 的 agent.cordis.yml 中作为一行挂载。",
+  "name": "my-dsh-profile",
+  "private": true,
+  "dependencies": {},
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "@dsh-community/dsh-plugin-teamwork"
+      ],
+      "patchReload": "live"
+    }
+  }
+}

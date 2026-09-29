@@ -1,0 +1,12 @@
+do-not-replace:
+  en: "Chapter 1 — The Do Not Replace promise. This plugin does not replace the official agent: zero intervention on tasks the official agent already handles, all campaigns run on the official agentTeams service, official tools are never shadowed, removal is residue-free. Frame it as a candidate official capability that merges upstream when agent-team turns stable."
+  zh: "第一章 —— 不取代承诺。本插件不取代官方 Agent：官方 Agent 能完成的零介入、战役全走官方 agentTeams、官方工具零遮蔽、移除即完全恢复。正确定位是候选的官方能力，官方转正之日即合并之时。"
+decision-matrix:
+  en: "Use when: open-ended long-horizon, decomposable into a dependency DAG, trustworthy verifier exists, high cost of error. Do NOT use: instantly verifiable changes, non-classifiable tasks, anything single-agent handles."
+  zh: "该用：开放长视界、可分解为依赖 DAG、存在可信验证器、错误代价高。绝不用：可即时验证的小改动、无法归类的任务、单 Agent 本就能搞定的活。"
+router-modes:
+  en: "off: manual /teamwork only. ask: interview once + approval (default). auto: automatic within budget ceiling; spills over to ask."
+  zh: "off：仅手动 /teamwork。ask：访谈一次 + approval（默认）。auto：预算帽内自动，超帽降级 ask。"
+budget-ceiling:
+  en: "Budget is a Config ceiling the model cannot override; tournament cost is multiplicative; exceeding the ceiling degrades to ask mode."
+  zh: "预算是 Config 上限，模型不可覆盖；锦标赛成本是乘法；超帽自动降级 ask。"

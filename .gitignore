@@ -1,0 +1,11 @@
+# Temporary/local analysis artifacts (not part of this repo)
+_dsh-analysis/
+_asar-out/
+DSH研究型与个人助理型Agent设计方案.md
+DSH跨会话跨项目记忆子系统设计.md
+
+# Node / build output
+node_modules/
+lib/
+*.tgz
+.DS_Store
