@@ -9,3 +9,5 @@ node_modules/
 lib/
 *.tgz
 .DS_Store
+# Stray analysis artifacts from other processes
+.falsifier2-*
