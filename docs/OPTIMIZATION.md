@@ -1,6 +1,8 @@
 # 多 Agent 合作优化方案
 
 > 优化哲学：**优化的方向不是加更多 Agent，而是削减——削减无效验证、削减冗余上下文、削减无信息通信。合作从"聊天文化"改造成"流水线文化"：每个环节只传递两样东西——状态和证据。**
+>
+> 📎 溯源：各优化项对应的 DSH 服务（spillStore/storageDomain/invariants/schedule/agentTeams 等）均经运行中宿主实测；索引见 [docs/README.md](README.md)。
 
 ## 一、优化总原则
 

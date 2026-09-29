@@ -1,6 +1,8 @@
 # 插件 vs DSH 现有多 Agent 能力：对比与判定矩阵
 
 > 「现有对象」= DSH 现在就已具备的多 Agent 能力栈（全部经实测契约核对）；「插件」= `@dsh-community/dsh-plugin-teamwork`（thin pattern 层，跑在 `agentTeams` 之上）。
+>
+> 📎 溯源：基线契约来自运行中宿主 `cordis_inspect` 实测；索引见 [docs/README.md](README.md)。
 
 ## 一、基线盘点：DSH 现有五件套
 

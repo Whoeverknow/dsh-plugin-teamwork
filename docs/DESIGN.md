@@ -1,6 +1,8 @@
 # dsh-plugin-teamwork 完整设计
 
 > 本文件是包骨架 `dsh-plugin-teamwork/` 的设计总纲：理论 → 服务映射、自动调用架构、发布路线、风险登记。代码细节见包内 README 与 src 各模块头注释。
+>
+> 📎 溯源：服务映射以运行中宿主 `cordis_inspect` 实测 + 官方 `dsh-experimental-agent-team`（0.1.7-rc.2）源码核验为准；索引见 [docs/README.md](README.md)。
 
 ## 一、定位
 

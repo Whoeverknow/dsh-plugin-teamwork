@@ -1,0 +1,538 @@
+on(string(), unknown()).readonly(),
+			"title": string().readonly()
+		});
+		let _deepseek_ai_dsh_api_session_controller_session_rename_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_rename_result$schema = () => _deepseek_ai_dsh_api_session_controller_session_rename_result$schema$value ??= object({
+			"title": string().readonly(),
+			"seq": number().readonly()
+		});
+		let _deepseek_ai_dsh_api_session_controller_session_search_parameter_0$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_search_parameter_0$schema = () => _deepseek_ai_dsh_api_session_controller_session_search_parameter_0$schema$value ??= object({ "query": string().readonly() });
+		let _deepseek_ai_dsh_api_session_controller_session_search_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_search_result$schema = () => _deepseek_ai_dsh_api_session_controller_session_search_result$schema$value ??= object({
+			"items": array(object({
+				"sessionId": intersection(string(), unknown()).readonly(),
+				"snippet": string().readonly()
+			})).readonly(),
+			"hasMore": boolean().readonly()
+		});
+		let _deepseek_ai_dsh_api_session_controller_session_selectModel_parameter_0$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_selectModel_parameter_0$schema = () => _deepseek_ai_dsh_api_session_controller_session_selectModel_parameter_0$schema$value ??= object({
+			"sessionId": intersection(string(), unknown()).readonly(),
+			"provider": string().readonly(),
+			"model": string().readonly(),
+			"reasoningEffort": string().readonly().optional()
+		});
+		let _deepseek_ai_dsh_api_session_controller_session_selectModel_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_selectModel_result$schema = () => _deepseek_ai_dsh_api_session_controller_session_selectModel_result$schema$value ??= object({ "selected": object({
+			"provider": string().readonly(),
+			"model": string().readonly(),
+			"reasoningEffort": string().readonly().optional()
+		}).readonly() });
+		let _deepseek_ai_dsh_api_session_controller_session_updateQueue_parameter_0$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_updateQueue_parameter_0$schema = () => _deepseek_ai_dsh_api_session_controller_session_updateQueue_parameter_0$schema$value ??= object({
+			"sessionId": intersection(string(), unknown()).readonly(),
+			"itemId": intersection(string(), unknown()).readonly(),
+			"action": union([
+				object({
+					"kind": literal("edit").readonly(),
+					"content": array(object({
+						"type": literal("text"),
+						"text": string()
+					})).readonly()
+				}),
+				object({ "kind": literal("remove").readonly() }),
+				object({ "kind": literal("steer").readonly() })
+			]).readonly()
+		});
+		let _deepseek_ai_dsh_api_session_controller_session_updateQueue_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_updateQueue_result$schema = () => _deepseek_ai_dsh_api_session_controller_session_updateQueue_result$schema$value ??= object({ "accepted": literal(true).readonly() });
+		let _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_parameter_0$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_parameter_0$schema = () => _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_parameter_0$schema$value ??= object({ "path": string().readonly() });
+		let _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_result$schema = () => _deepseek_ai_dsh_api_session_controller_session_workspacePathApplications_result$schema$value ??= array(object({
+			"id": string().readonly(),
+			"name": string().readonly(),
+			"default": boolean().readonly(),
+			"icon": union([literal(null), string()]).readonly()
+		}));
+		let _deepseek_ai_dsh_api_session_controller_skills_list_parameter_0$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_skills_list_parameter_0$schema = () => _deepseek_ai_dsh_api_session_controller_skills_list_parameter_0$schema$value ??= object({ "sessionId": intersection(string(), unknown()).readonly() });
+		let _deepseek_ai_dsh_api_session_controller_skills_list_result$schema$value;
+		const _deepseek_ai_dsh_api_session_controller_skills_list_result$schema = () => _deepseek_ai_dsh_api_session_controller_skills_list_result$schema$value ??= object({ "skills": array(object({
+			"path": string().readonly().optional(),
+			"name": string().readonly(),
+			"description": string().readonly(),
+			"whenToUse": string().readonly().optional(),
+			"modelInvocable": boolean().readonly()
+		})).readonly() });
+		const TYPERT_REMOTE$4 = {
+			package: "@deepseek-ai/dsh-api-session-controller",
+			descriptors: [
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#fileReferences/list",
+					service: "sessionFileReferences",
+					namespace: "fileReferences",
+					method: "list",
+					invocation: { kind: "direct" },
+					scope: {
+						context: "agent",
+						wire: "agentId"
+					},
+					parameters: [{
+						name: "agent",
+						wire: "agentId",
+						source: "lookup",
+						lookup: "agent",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-session/types#SessionId",
+							create: _deepseek_ai_dsh_api_session_controller_fileReferences_list_parameter_0$schema
+						}
+					}, {
+						name: "query",
+						wire: "query",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller#fileReferences/list:query",
+							create: _deepseek_ai_dsh_api_session_controller_fileReferences_list_parameter_1$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller#fileReferences/list:result",
+						create: _deepseek_ai_dsh_api_session_controller_fileReferences_list_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/file-references.ts",
+						"line": 33,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/attachment",
+					service: "sessionController",
+					namespace: "session",
+					method: "attachment",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionAttachmentRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_attachment_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionAttachmentValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_attachment_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 437,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/cancel",
+					service: "sessionController",
+					namespace: "session",
+					method: "cancel",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionCancelRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_cancel_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionCancelValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_cancel_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 457,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/canOpenWorkspacePath",
+					service: "sessionController",
+					namespace: "session",
+					method: "canOpenWorkspacePath",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller#session/canOpenWorkspacePath:result",
+						create: _deepseek_ai_dsh_api_session_controller_session_canOpenWorkspacePath_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 319,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/control",
+					service: "sessionController",
+					namespace: "session",
+					method: "control",
+					mode: "stream",
+					invocation: { kind: "direct" },
+					parameters: [],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionControlFrame",
+						create: _deepseek_ai_dsh_api_session_controller_session_control_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 520,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/create",
+					service: "sessionController",
+					namespace: "session",
+					method: "create",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionCreateRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_create_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionCreateValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_create_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 273,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/follow",
+					service: "sessionController",
+					namespace: "session",
+					method: "follow",
+					mode: "stream",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionFollowRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_follow_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionFollowFrame",
+						create: _deepseek_ai_dsh_api_session_controller_session_follow_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 480,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/fork",
+					service: "sessionController",
+					namespace: "session",
+					method: "fork",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionForkRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_fork_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionForkValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_fork_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 415,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/initializeDefaultModel",
+					service: "sessionController",
+					namespace: "session",
+					method: "initializeDefaultModel",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller#session/initializeDefaultModel:result",
+						create: _deepseek_ai_dsh_api_session_controller_session_initializeDefaultModel_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 292,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/list",
+					service: "sessionController",
+					namespace: "session",
+					method: "list",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "_request",
+						wire: "_request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionListRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_list_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionListValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_list_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 252,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/modelCatalog",
+					service: "sessionController",
+					namespace: "session",
+					method: "modelCatalog",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#ModelCatalog",
+						create: _deepseek_ai_dsh_api_session_controller_session_modelCatalog_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 310,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/openWorkspacePath",
+					service: "sessionController",
+					namespace: "session",
+					method: "openWorkspacePath",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionOpenWorkspacePathRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_openWorkspacePath_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionOpenWorkspacePathValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_openWorkspacePath_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 340,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/page",
+					service: "sessionController",
+					namespace: "session",
+					method: "page",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionPageRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_page_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionPage",
+						create: _deepseek_ai_dsh_api_session_controller_session_page_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 468,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/projections",
+					service: "sessionController",
+					namespace: "session",
+					method: "projections",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionProjectionsRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_projections_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionProjectionsValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_projections_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 491,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/prompt",
+					service: "sessionController",
+					namespace: "session",
+					method: "prompt",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionPromptRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_prompt_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionPromptValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_prompt_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 426,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/rename",
+					service: "sessionController",
+					namespace: "session",
+					method: "rename",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionRenameRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_rename_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionRenameValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_rename_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 403,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/search",
+					service: "sessionController",
+					namespace: "session",
+					method: "search",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionSearchRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_search_parameter_0$schema
+						}
+					}],
+					cancellation: { parameter: "signal" },
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionSearchValue",
+						create: _deepseek_ai_dsh_api_session_controller_session_search_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/api/session-controller/src/index.ts",
+						"line": 263,
+						"column": 3
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-api-session-controller#session/selectModel",
+					service: "sessionController",
+					namespace: "session",
+					method: "selectModel",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-api-session-controller/types#SessionSelectModelRequest",
+							create: _deepseek_ai_dsh_api_session_controller_session_selectModel_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymb

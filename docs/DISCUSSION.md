@@ -1,6 +1,8 @@
 # 多 Agent × Teamwork：四线研讨
 
 > 素材来源：Google Antigravity 官方博客《Teamwork: When AI Becomes a Research Partner》(2026-08-27) 及 `/docs/teamwork` 文档（均为厂商发布材料，未经独立验证）；DSH 运行时实测的 `agentTeams`/`workflowEngine`/`subagents`/`goals` 等服务契约。
+>
+> 📎 溯源：素材来源见 [docs/README.md](README.md) 索引；证据链与复现方法见根 [README](../README.md)。
 > 本文是「理论 → 验证 → 落地 → 实例」的完整论证链。
 
 ## 线一 · 理论谱系对照：哪些是真新，哪些是旧酒
